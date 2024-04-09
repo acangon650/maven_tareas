@@ -33,5 +33,10 @@
     <artifactId>javafaker</artifactId>
     <version>1.0.2</version>
 </dependency>
+  	<dependency>
+  		<groupId>com.endes.app</groupId>
+  		<artifactId>WebAppEquipo</artifactId>
+  		<version>1.0-SNAPSHOT</version>
+  	</dependency>
   </dependencies>
 </project>
