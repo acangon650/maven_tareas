@@ -29,4 +29,9 @@ public class Task {
 	public void setCompleted(boolean isCompleted) {
 		this.isCompleted = isCompleted;
 	}	
+	
+	@Override
+	public String toString() {
+		
+	}
 }

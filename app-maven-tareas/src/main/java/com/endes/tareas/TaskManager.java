@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.function.BooleanSupplier;
 
 class TaskManager implements TaskManagerInterface {
-	private List<Task> tasks = new ArrayList<>();
+	private HashMap<String, Task> tasks2=new HashMap<>();
 	
 	/**
 	 * @param title>titulo de la task
@@ -15,7 +15,7 @@ class TaskManager implements TaskManagerInterface {
 	@Override
 	public boolean addTask(String title) {
 		Task newTask = new Task(title);
-		tasks.add(newTask);
+		tasks2.put(title, newTask);
 		System.out.println("\"" + title + "\" task has been added.");
 		return true;
 	}
@@ -26,16 +26,9 @@ class TaskManager implements TaskManagerInterface {
 	 */
 	@Override
 	public boolean completeTask(String title) {
-		boolean complete=false;
-		for (Task task : tasks) {
-			if (task.getTitle().equals(title)) {
-				task.setCompleted(true);
-				System.out.println("\"" + title + "\" task is now completed.");
-				complete=true;
-			}
-		}
-	System.out.println("Task not found: " + title);
-	return complete;
+		tasks2.get(title).setCompleted(true);
+		System.out.println("Task not found: " + title);
+		return tasks2.get(title).isCompleted();
 	}
 	
 	/**
@@ -44,6 +37,18 @@ class TaskManager implements TaskManagerInterface {
 	@Override
 	public void printTasks() {
 		System.out.println("Tasks list:");
+		for (Task task : tasks) {
+			
+		}
+		
+		
+		for (String key : tasks2.keySet()) {
+			System.out.print(tasks2.get(key).toString());
+		}
+		
+		
+		tasks2.entrySet()
+		
 		for (Task task : tasks) {
 			System.out.println("- " + task.getTitle() + " [Status: " + (task.isCompleted() ? "Completed" : "Pending") + "]");
 		}
@@ -56,11 +61,20 @@ class TaskManager implements TaskManagerInterface {
 	 */
 	public boolean taskExists(String taskTitle) {
 		boolean exists=false;
+		if(tasks2.get(taskTitle) != null) {
+			return true;
+		}
+			
+		/*
 		for (Task task : tasks) {
 			if (task.getTitle().equals(taskTitle)) {
 				exists=true;
 			}
-		}
+		}*/
+		
+		
+		
+		
 		return exists;
 	}
 
