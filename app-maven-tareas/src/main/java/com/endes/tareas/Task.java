@@ -22,6 +22,10 @@ public class Task {
 		return isCompleted;
 	}
 
+	/**
+	 * 
+	 * @param isCompleted 
+	 */
 	public void setCompleted(boolean isCompleted) {
 		this.isCompleted = isCompleted;
 	}	
